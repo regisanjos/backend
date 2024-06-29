@@ -6,7 +6,7 @@ const deliverymanRoutes = Router();
 
 const deliverymanController = new DeliverymanController();
 
-deliverymanRoutes.post('/register', deliverymanController.register);
+deliverymanRoutes.post('/create', deliverymanController.create);
 deliverymanRoutes.post('/login', deliverymanController.login);
 deliverymanRoutes.delete('/delete', deliverymanController.delete);
 deliverymanRoutes.put('/update/:id', deliverymanController.update);

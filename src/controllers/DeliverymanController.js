@@ -6,7 +6,7 @@ class DeliverymanController {
   async create(request, response) {
     try {
       const { name, email, cpf, password, location } = request.body;
-      const register = await prisma.deliveryman.create({
+      const create = await prisma.deliveryman.create({
         data: {
           name,
           email,

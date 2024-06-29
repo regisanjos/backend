@@ -3,10 +3,10 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 class UserController {
-  async register(request, response) {
+  async create(request, response) {
     try {
       const { name, email, cpf, password, location } = request.body;
-      const register = await prisma.user.create({
+      const create = await prisma.user.create({
         data: {
           name,
           email,
@@ -15,7 +15,7 @@ class UserController {
           location,
         },
       });
-      return response.json(register);
+      return response.json(create);
     } catch {
       return response.status(409).send('Erro ao criar Usuário!');
     }

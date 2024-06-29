@@ -5,7 +5,7 @@ const userController = new UserController();
 
 const userRoutes = Router();
 
-userRoutes.post('/register', userController.register);
+userRoutes.post('/create', userController.create);
 userRoutes.get('/login', userController.login);
 userRoutes.delete('/delete', userController.delete);
 userRoutes.put('/update/:id', userController.update);

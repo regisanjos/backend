@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 class PackageController {
-  async register(request, response) {
+  async create(request, response) {
     try {
       const { user_name, status, deliveryman_name, location } = request.body;
 
@@ -10,7 +10,7 @@ class PackageController {
         where: { name: user_name },
       });
 
-      console.log('ESTOU AQUI', foundUser);
+      console.log('Aguardando o destinatario', foundUser);
 
       if (!foundUser) {
         return response.status(404).send('User not found!');

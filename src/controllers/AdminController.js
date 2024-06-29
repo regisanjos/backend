@@ -6,7 +6,7 @@ class AdminController {
   async create(request, response) {
     try {
       const { name, email, cpf, password } = request.body;
-      const register = await prisma.admin.create({
+      const create = await prisma.admin.create({
         data: {
           name,
           email,
