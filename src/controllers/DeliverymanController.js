@@ -3,7 +3,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 class DeliverymanController {
-  async register(request, response) {
+  async create(request, response) {
     try {
       const { name, email, cpf, password, location } = request.body;
       const register = await prisma.deliveryman.create({
@@ -15,7 +15,7 @@ class DeliverymanController {
           location,
         },
       });
-      response.json(register);
+      response.json(create);
     } catch {
       return response.status(409).send('Erro ao criar DeliveryMan!');
     }
