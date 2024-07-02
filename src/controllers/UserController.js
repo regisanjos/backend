@@ -9,10 +9,12 @@ class UserController {
       const create = await prisma.user.create({
         data: {
           name,
+          sobrenome,
+          genero,
           email,
           cpf,
           password,
-          location,
+          telefone
         },
       });
       return response.json(create);
@@ -28,6 +30,7 @@ class UserController {
         where: {
           cpf: cpf,
           password: password,
+
         },
       });
       return response.json(user);
@@ -60,9 +63,15 @@ class UserController {
         },
         data: {
           name,
-          email,
+          sobrenome,
+          genero,
           password,
-          location,
+          cpf,
+          email,
+          telefone,
+
+          
+          
         },
       });
       return response.json(user);
