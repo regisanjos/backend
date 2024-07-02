@@ -74,4 +74,4 @@ class AdminController {
   }
 }
 
-module.exports = AdminContro
+module.exports = AdminController
