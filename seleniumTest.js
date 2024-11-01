@@ -1,6 +1,6 @@
 const { Builder, By, until } = require('selenium-webdriver');
 
-// Configura o WebDriver para usar o Chrome automaticamente
+
 let driver = new Builder().forBrowser('chrome').build();
 
 async function runUITests() {

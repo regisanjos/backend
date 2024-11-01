@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../Server');
 const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient(); // Instancia o PrismaClient
+const prisma = new PrismaClient(); 
 
 describe('Exclusão de Usuário', () => {
     let userId;
@@ -19,13 +19,13 @@ describe('Exclusão de Usuário', () => {
                 telefone: '11977777777'
             }
         });
-        userId = user.id; // Armazena o ID do usuário criado
+        userId = user.id; // Armazena  usuário criado
     });
 
     it('Deve excluir um usuário com sucesso', async () => {
         const response = await request(app)
             .delete('/delete')
-            .send({ id: userId }); // Envia o ID do usuário para exclusão
+            .send({ id: userId }); //  ID do usuário para exclusão
 
         expect(response.statusCode).toBe(200);
         expect(response.text).toBe('Usuário excluído!');

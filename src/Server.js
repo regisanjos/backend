@@ -1,13 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const userRoutes = require('./routes/UserRoutes'); // Verifique se o caminho está correto
+const userRoutes = require('./routes/UserRoutes'); 
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(userRoutes); // Monta as rotas de usuário
+app.use(userRoutes); 
 
 module.exports = app;
