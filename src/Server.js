@@ -1,17 +1,13 @@
 const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const userRoutes = require('./routes/UserRoutes'); // Verifique se o caminho está correto
 
-
-
-const routes = require('./routes');
+dotenv.config();
 
 const app = express();
-
-
+app.use(cors());
 app.use(express.json());
+app.use(userRoutes); // Monta as rotas de usuário
 
-
-
-app.use(routes);
-
-const PORT = process.env.APP_PORT || 3333;
-app.listen(PORT, () => console.log(`Server is runing on Port ${PORT}`));
+module.exports = app;

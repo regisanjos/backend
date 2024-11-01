@@ -18,44 +18,42 @@ model Admin {
 }
 
 model User {
-  id        String @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
-  sobrenome String
-  genero    String
-  email     String @unique
-  cpf       String @unique
+  email     String    @unique
+  cpf       String    @unique
   password  String
+  genero    String
+  sobrenome String
   telefone  String
-
-  package Package[]
+  package   Package[]
 
   @@map("user")
 }
 
 model Deliveryman {
-  id       String  @id @default(uuid())
+  id       String    @id @default(uuid())
   name     String
-  email    String  @unique
-  cpf      String  @unique
+  email    String    @unique
+  cpf      String    @unique
   password String
   location String?
-
-  package Package[]
+  package  Package[]
 
   @@map("deliveryman")
 }
 
 model Package {
-  id       String  @id @default(uuid())
-  status   String
-  location String?
-  photo    String?
-
+  id                String      @id @default(uuid())
+  status            String
+  location          String?
+  photo             String?
   deliveryman_id    String
+  user_id           String
   fk_deliveryman_id Deliveryman @relation(fields: [deliveryman_id], references: [id])
+  fk_user_id        User        @relation(fields: [user_id], references: [id])
 
-  user_id    String
-  fk_user_id User   @relation(fields: [user_id], references: [id])
-
+  @@index([deliveryman_id], map: "package_deliveryman_id_fkey")
+  @@index([user_id], map: "package_user_id_fkey")
   @@map("package")
 }
